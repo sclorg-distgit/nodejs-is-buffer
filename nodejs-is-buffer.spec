@@ -7,7 +7,7 @@
 Summary:       Determine if an object is Buffer
 Name:          %{?scl_prefix}nodejs-%{npm_name}
 Version:       1.1.4
-Release:       1%{?dist}
+Release:       2%{?dist}
 License:       MIT
 URL:           https://github.com/feross/is-buffer
 Source0:       http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
@@ -31,11 +31,16 @@ It's future-proof and works in node too!
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pr index.js package.json test %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
+%nodejs_symlink_deps
+
 %files
 %doc LICENSE README.md
 %{nodejs_sitelib}/%{npm_name}
 
 %changelog
+* Wed Mar 08 2017 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.1.4-2
+- Add symlink macro
+
 * Mon Oct 31 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.1.4-1
 - Updated with script
 
